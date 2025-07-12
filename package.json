@@ -15,7 +15,8 @@
       "scm": [
         {
           "id": "lastCommitFiles",
-          "name": "Last Commit Files"
+          "name": "Last Commit Files",
+          "icon": "images/smc-icon-light.svg"
         }
       ]
     }
