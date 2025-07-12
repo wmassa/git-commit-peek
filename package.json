@@ -2,7 +2,7 @@
   "name": "git-commit-peek",
   "displayName": "Git Commit Peek",
   "description": "Git Commit Peek shows the files changed in the last commit. Simple and fast functionality.",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.100.0"
   },
