@@ -1,41 +1,50 @@
 {
   "name": "git-commit-peek",
   "displayName": "Git Commit Peek",
-  "description": "Git Commit Peek brings your Git history and file changes into the VSCode editor pane using inline peek views. See what’s been committed, staged, or changed without leaving your coding flow.",
-  "version": "0.0.1",
+  "description": "Git Commit Peek shows the files changed in the last commit. Simple and fast functionality.",
+  "version": "0.0.5",
   "engines": {
-    "vscode": "^1.102.0"
+    "vscode": "^1.100.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "git-commit-peek.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+    "views": {
+      "scm": [
+        {
+          "id": "lastCommitFiles",
+          "name": "Last Commit Files"
+        }
+      ]
+    }
   },
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmassa/git-commit-peek.git"
+  },
+  "publisher": "GitCommitPeek",
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
-    "@types/vscode": "^1.102.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3"
   }
 }

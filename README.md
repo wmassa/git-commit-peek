@@ -1,71 +1,31 @@
-# git-commit-peek README
+# git-commit-peek
 
-This is the README for your extension "git-commit-peek". After writing up a brief description, we recommend including the following sections.
+## Overview
+
+**Git Commit Peek** is a Visual Studio Code extension that shows the files changed in the last commit of your current Git repository. It provides a fast and simple way to quickly view the most recent changes directly within the VS Code Source Control view.
+
+## How It Works
+
+After installing the extension, a new view called **Last Commit Files** appears in the Source Control (SCM) sidebar. This view automatically lists all files that were changed in the latest commit of the active repository. Selecting a file allows you to peek at its changes or open it for review.
+
+No configuration is required. The extension works out-of-the-box for any folder opened in VS Code that is a Git repository.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- View a list of files changed in the last commit
+- Quickly open or peek at changed files
+- Integrates with the Source Control sidebar for easy access
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![Extension Screenshot](images/screenshot.png)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+No special requirements. Works with any Git repository opened in VS Code.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension does not contribute any custom settings.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+No known issues at this time.
