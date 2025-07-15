@@ -24,10 +24,13 @@ No configuration is required. The extension works out-of-the-box for any folder 
 ### Screenshots
 
 **List View:**
-![List View Screenshot](images/screenshot-list-view.png)
+
+ <img src="https://raw.githubusercontent.com/wmassa/git-commit-peek/refs/heads/main/images/screenshot-list-view.png" alt="list-view-screenshot" width="400">
 
 **Tree View:**
-![Tree View Screenshot](images/screenshot-tree-view.png)
+
+ <img src="https://raw.githubusercontent.com/wmassa/git-commit-peek/refs/heads/main/images/screenshot-tree-view.png" alt="tree-view-screenshot" width="400">
+
 
 ## Requirements
 
