@@ -6,17 +6,28 @@
 
 ## How It Works
 
-After installing the extension, a new view called **Last Commit Files** appears in the Source Control (SCM) sidebar. This view automatically lists all files that were changed in the latest commit of the active repository. Selecting a file allows you to peek at its changes or open it for review.
+After installing the extension, a new view called **Last Commit Files** appears in the Source Control (SCM) sidebar. You can now choose between a **List View** and a **Tree View** to display the files changed in the latest commit:
+
+- **List View**: Displays all changed files in a flat list for quick access.
+- **Tree View**: Shows files organized by folder structure, making it easy to navigate large commits.
+
+You can switch between these views using the provided option in the extension's UI. Selecting a file allows you to peek at its changes or open it for review.
 
 No configuration is required. The extension works out-of-the-box for any folder opened in VS Code that is a Git repository.
 
 ## Features
 
-- View a list of files changed in the last commit
+- View files changed in the last commit using either a tree or list view
 - Quickly open or peek at changed files
 - Integrates with the Source Control sidebar for easy access
 
-![Extension Screenshot](images/screenshot.png)
+### Screenshots
+
+**List View:**
+![List View Screenshot](images/screenshot-list-view.png)
+
+**Tree View:**
+![Tree View Screenshot](images/screenshot-tree-view.png)
 
 ## Requirements
 
