@@ -12,7 +12,7 @@ export function getChangedGitFiles(): {
 
   // Format: A\tfile.txt\nM\tfile2.txt\nD\tfile3.txt
   const output = execSync(
-    "git diff-tree --no-commit-id --name-status -r HEAD",
+    "git diff-tree --no-commit-id --name-status -r --relative HEAD",
     {
       cwd: repoPath,
     }
