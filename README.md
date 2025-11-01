@@ -31,14 +31,13 @@ No configuration is required. The extension works out-of-the-box for any folder 
 
  <img src="https://raw.githubusercontent.com/wmassa/git-commit-peek/refs/heads/main/images/screenshot-tree-view.png" alt="tree-view-screenshot" width="400">
 
-
 ## Requirements
 
 No special requirements. Works with any Git repository opened in VS Code.
 
 ## Extension Settings
 
-This extension does not contribute any custom settings.
+- Tree View Type: select a tree or list view
 
 ## Known Issues
 
