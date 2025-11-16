@@ -8,11 +8,13 @@ export function getChangedGitFiles(): {
   status: string;
 }[] {
   const repoPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath;
-  if (!repoPath) return [];
+  if (!repoPath) {
+    return [];
+  }
 
   // Format: A\tfile.txt\nM\tfile2.txt\nD\tfile3.txt
   const output = execSync(
-    "git diff-tree --no-commit-id --name-status -r --relative HEAD",
+    'git show --relative --name-status --pretty="" HEAD',
     {
       cwd: repoPath,
     }
@@ -23,12 +25,16 @@ export function getChangedGitFiles(): {
     .split("\n")
     .map((line) => {
       const [status, relativePath] = line.split(/\t/);
+      if (!relativePath) {
+        return undefined;
+      }
       return {
         relativePath,
         status,
         absolutePath: path.join(repoPath, relativePath),
       };
-    });
+    })
+    .filter((a) => a !== undefined);
 }
 
 export function getIconForGitStatus(status: string): vscode.ThemeIcon {

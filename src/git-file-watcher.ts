@@ -1,4 +1,6 @@
 import * as vscode from "vscode";
+import * as path from "path";
+import * as fs from "fs";
 
 export function createGitFileWatcher(
   refreshFunction: () => void
@@ -10,35 +12,40 @@ export function createGitFileWatcher(
     if (debounceTimer) {
       clearTimeout(debounceTimer);
     }
-    debounceTimer = setTimeout(() => {
-      refreshFunction();
-    }, 2000);
+    debounceTimer = setTimeout(refreshFunction, 2000);
   };
 
-  const gitFiles = [
-    "**/.git/HEAD", // Branch switches, most commits
-    "**/.git/logs/HEAD", // All commits, amends, resets (most reliable)
-    "**/.git/index", // Staging area changes
-    "**/.git/refs/heads/**", // Local branch updates (covers commits too)
-  ];
+  const gitPatterns = ["HEAD", "logs/HEAD", "index", "refs/heads/**"];
 
-  gitFiles.forEach((pattern) => {
-    const watcher = vscode.workspace.createFileSystemWatcher(pattern);
+  // Find the closest git directory
+  const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+  if (workspaceFolder) {
+    let dir = workspaceFolder.uri.fsPath;
+    let gitDir: string | null = null;
 
-    const handler = () => debouncedRefresh();
+    // Check current and parent directories
+    while (dir !== path.dirname(dir)) {
+      if (fs.existsSync(path.join(dir, ".git"))) {
+        gitDir = path.join(dir, ".git");
+        break;
+      }
+      dir = path.dirname(dir);
+    }
 
-    watcher.onDidChange(handler);
-    watcher.onDidCreate(handler);
-    watcher.onDidDelete(handler);
-
-    watchers.push(watcher);
-  });
+    if (gitDir) {
+      gitPatterns.forEach((pattern) => {
+        const watcher = vscode.workspace.createFileSystemWatcher(
+          new vscode.RelativePattern(gitDir!, pattern)
+        );
+        watcher.onDidChange(debouncedRefresh);
+        watcher.onDidCreate(debouncedRefresh);
+        watcher.onDidDelete(debouncedRefresh);
+        watchers.push(watcher);
+      });
+    }
+  }
 
   return vscode.Disposable.from(...watchers, {
-    dispose: () => {
-      if (debounceTimer) {
-        clearTimeout(debounceTimer);
-      }
-    },
+    dispose: () => clearTimeout(debounceTimer),
   });
 }
