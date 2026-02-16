@@ -35,8 +35,10 @@ export async function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  createGitFileWatcher(() => {
+  // Ensure watcher stays alive and is disposed on deactivate
+  const watcherDisposable = createGitFileWatcher(() => {
     const files = getChangedGitFiles();
     currentProvider.setFiles(files);
   });
+  context.subscriptions.push(watcherDisposable);
 }
